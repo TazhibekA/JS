@@ -1,0 +1,54 @@
+<html>
+
+<head>
+  <title>TEST PAGE</title>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <style type="text/css">
+
+  </style>
+  <script>
+
+    $(document).ready(function(){
+
+    $("#class").click(function(){
+
+ var value=$('#myinput').val().split(",");
+
+ var value1 = value.shift();
+var value2 = value.pop();
+$("p:even").css('color','green');
+$("p:odd").css('color','red');
+
+
+$('#class').css('font-size',value1);
+$('#class').css('color',value1);
+
+
+
+
+     });
+});
+	</script>
+</head>
+
+<body>
+  <div>
+
+    <div id="class">Text7 text7 text text text text text</div>
+    <input type="text" id="myinput">
+
+    <p>1</p>
+    <p>2</p>
+    <p>3</p>
+    <p>4</p>
+    <p>5</p>
+    <p>6</p>
+    <p>7</p>
+    <p>8</p>
+    <p>9</p>
+    <p>10</p>
+
+
+  </div>
+</body>
+<html>

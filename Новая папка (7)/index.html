@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+  <title>Document</title>
+  <script type="text/javascript">
+    picture = [' 1.jpg', ' 2.jfif', ' 3.jfif', ' 4.jpg']
+    i = 0
+
+    function changeImg() {
+      if (i == 4) {
+        i = 0;
+      }
+      $('img').attr('src', picture[i]);
+      i++;
+
+    }
+
+    $("#a1").click(function() {
+      console.log("123");
+      $('img').attr('src', picture[0]);
+    });
+
+    $("#a2").click(function() {
+      $('img').attr('src', picture[1]);
+
+    });
+
+    $("#a3").click(function() {
+      $('img').attr('src', picture[2]);
+
+    });
+
+    $("#a4").click(function() {
+      $('img').attr('src', picture[3]);
+
+    });
+
+    // setInterval(changeImg, 500)
+  </script>
+</head>
+
+<body>
+  <img width="300px" height="300px" src=" 1.jpg"></img>
+  <input type="radio" id="a1" name="1"/> 1
+  <input type="radio" id="a2" name="1"/> 2
+  <input type="radio" id="a3" name="1"/> 3
+  <input type="radio" id="a4" name="1"/> 4
+
+</body>
+
+</html>
