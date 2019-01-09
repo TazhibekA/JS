@@ -1,0 +1,33 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+	<title>VUEjs Page Title</title>
+	<meta charset="utf-8">
+	<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+	<script type="text/javascript">
+		Vue.component('button-counter', {
+			  data: function () {
+			    return {
+			      count: 0
+			    }
+			  },
+			  template: '<button v-on:click="count++">Счётчик кликов — {{ count }}</button>'
+			})
+	</script>
+</head>
+	<body>
+		<div id="components-demo">
+			<button-counter></button-counter>
+			<button-counter></button-counter>
+		</div>
+		<script type="text/javascript">
+			new Vue({ 
+				el: '#components-demo',
+				data: {
+					
+				}
+			})
+		</script>
+	</body>
+</html>

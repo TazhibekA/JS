@@ -1,0 +1,64 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+	<title>FOR and component</title>
+	<meta charset="utf-8">
+	<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+	<script type="text/javascript">
+
+	</script>
+</head>
+	<body>
+		<div id="demo">
+			<p>{{ message }}</p>
+			<input type="text" v-on:input="message = $event.target.value" name="">
+		</div>
+
+		<script type="text/javascript">
+			new Vue({
+			  el: "#demo",
+			  data: {
+			    message: '123'
+			  },
+			  /*
+				создание
+			  */
+			  beforeCreate: function () {
+			    console.log('===befoCreated===, Значение message: ' + this.message)
+			  },
+			  created: function () {
+			    console.log('===created===, Значение message: ' + this.message)
+			  },
+			  beforeMount : function () {
+			    console.log('===beforeMount===, Значение message: ' + this.message)
+			  },
+			  mounted : function () {
+			    console.log('===mounted===, Значение message: ' + this.message)
+			  },
+
+			  /*
+				обновление данных
+			  */
+			  beforeUpdate : function () {
+			    console.log('===beforeUpdate===, Значение message: ' + this.message)
+			  },
+			  updated : function () {
+			    console.log('===updated===, Значение message: ' + this.message);
+			    this.$destroy();
+			  },
+
+			  /*
+				удаление
+			  */
+			  beforeDestroy : function () {
+			    console.log('===beforeDestroy===, Значение message: ' + this.message)
+			  },
+			  destroyed : function () {
+			    console.log('===destroyed===, Значение message: ' + this.message);
+			  },
+
+			})
+		</script>
+	</body>
+</html>

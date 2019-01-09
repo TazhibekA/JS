@@ -1,0 +1,29 @@
+<html>
+  <head>
+    <title>dfg</title>
+    <script type="text/javascript" src="https://code.jquery.com/jquery-3.3.1.js"></script>
+    <script type="text/javascript" src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script>
+    <link rel="stylesheet" href="http://cdn.datatables.net/1.10.19/css/jquery.dataTables.min.css">
+  </head>
+  <body>
+    <table id="myTable">
+      <thead>
+        <tr>
+          <th>A</th>
+          <th>B</th>
+          <th>C</th>
+          <th>A</th>
+          <th>B</th>
+          <th>C</th>
+        </tr>
+      </thead>
+    </table>
+    <script type="text/javascript">
+      $(document).ready( function () {
+        $('#myTable').DataTable({
+            "ajax": 'data/'
+          }
+        );
+      } );
+    </script>
+  </body>

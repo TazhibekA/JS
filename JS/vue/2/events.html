@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>FOR and component</title>
+	<meta charset="utf-8">
+	<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+	<body>
+		<div id="app">
+
+			<input v-on:keyup.13="myalert($event.target.value)">
+			<input v-on:keyup.esc="myalert($event.target.value)">
+			<input @keyup.enter="myalert($event.target.value)">
+			
+			<hr>
+<!--
+			<span>Введённое многострочное сообщение:</span>
+			<p style="white-space: pre-line;">{{ message }}</p>
+			<br>
+			<textarea v-model="message" placeholder="введите несколько строчек"></textarea>
+
+			<hr>
+
+			  
+-->
+
+			<input type="checkbox" id="jack" value="Джек" v-model="checkedNames">
+			  <label for="jack">Джек</label>
+			  <input type="checkbox" id="john" value="Джон" v-model="checkedNames">
+			  <label for="john">Джон</label>
+			  <input type="checkbox" id="mike" value="Майк" v-model="checkedNames">
+			  <label for="mike">Майк</label>
+			  <br>
+			  <span>Отмеченные имена: {{ checkedNames }}</span>
+
+		</div>
+
+		<script type="text/javascript">
+			new Vue({
+				el: '#app',
+				data: {
+					buildings: [
+						{address: "пр. Мира 25", year: 2000, floors: 12, photo: ""},
+						{address: "пр. Победы 67", year: 1965, floors: 5, photo: ""},
+						{address: "пр. Республики", year: 2012, floors: 20, photo: ""}
+					],
+					checkedNames: []
+				},
+				methods: {
+					myalert(mes) {
+						alert(mes);
+					}
+				}
+			});
+		</script>
+	</body>
+</html>
