@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <title>VUEjs TEST</title>
+  <script src="https://cdn.jsdelivr.net/npm/vue@2.5.17/dist/vue.js"></script>
+
+
+</head>
+
+<body>
+  <div id="app">
+    <!-- <p>{{title}}</p>
+    <p>{{word}}</p>
+
+    <button @click="letsClick">CLICK</button> -->
+
+    <!-- <p class="">{{word | up}}</p>
+    <hr>
+    <p>{{letsClick()}}</p>
+    <input type="text" v-on:input="word=$event.target.value" /> -->
+    <!-- <p>{{books[0].['name']}}</p> -->
+
+    <ul>
+      <li v-for="book in books"> {{book}}</li>
+    </ul>
+
+    <input type="text" v-on:input="word=$event.target.value">
+    <button v-on:click=" addElement">PUSH</button>
+    <p></p>
+    <button v-on:click="show=!show">SHOW</button>
+    <p v-if="show"> asdlsd;f</p>
+    <p v-else>afhsdofh</p>
+  </div>
+<mycomponent></mycomponent>
+
+</body>
+<script>
+  new Vue({
+
+    Vue.component('mycomponent',{
+template:"<p>dfhdjfdf</p>"
+
+});
+    el: '#app',
+    data: {
+      title: 123,
+      word: "",
+      show: true,
+      books: [
+        // {name:"first",author:"A.A"},
+        // {name:"second",author:"B.B"},
+        // {name:"third",author:"C.C"}
+        "first", "second", "third"
+      ]
+
+    },
+    methods: {
+      letsClick() {
+        if (this.word.length >= 3) return "HELLO," + this.word;
+      },
+      addElement() {
+        this.books.push(this.word);
+        return this.books;
+
+      }
+    },
+
+    filters: {
+      up(val) {
+        return val.toUpperCase();
+      }
+
+
+    }
+
+  });
+</script>
+
+</html>
