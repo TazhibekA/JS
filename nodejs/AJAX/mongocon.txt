@@ -1,0 +1,4 @@
+const mongoose = require('mongoose');
+mongoose.connect('mongodb://evgeniy:qwerty123@ds139934.mlab.com:39934/testdb123',  {useNewUrlParser: true });
+
+

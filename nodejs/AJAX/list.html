@@ -1,0 +1,51 @@
+<html>
+<head>
+	<title>TEST PAGE</title>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+	<style type="text/css">
+		.red {
+			color: red;
+		}
+	</style>
+	<script>
+	$(document).ready(function(){
+
+		$("button").click(function(){
+
+			console.log('click');
+			myval = prompt('Enter value');
+			myopt = $('#myinp').val();
+			console.log(myval);
+
+			$('#myselect').append('<option value="'+myval+'">'+myopt+'</option>');
+			/*
+			$('#myselect')
+         			.append($("<option></option>")
+                    .attr("value",myval)
+                    .text($('#myinp').val()));
+			*/
+
+		});
+
+	});
+	</script>
+</head>
+<body>
+	<div>
+		<select id="myselect">
+			<option value=""></option>
+		</select>
+
+		<input id="myinp" type="text" value=""/>
+		<button>SAVE</button>
+
+		<p></p>
+
+		<script type="text/javascript">
+			
+			  
+
+		</script>
+	</div>
+</body>
+<html>
