@@ -1,0 +1,80 @@
+<html>
+<head>
+  <title>TABLE</title>
+  <script type="text/javascript" src="https://code.jquery.com/jquery-3.3.1.js"></script>
+  <script type="text/javascript" src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script>
+  <script type="text/javascript">
+    $(document).ready(function() {
+
+    table = $('#example').DataTable({
+        "ajax": 'data/',
+        "ordering": false
+    });
+
+    $('#example tbody').on('click', 'tr', function () {
+        var data = table.row( this ).data();
+
+        $( '#tr_id' ).val(data[0]);
+        $( '#first_name' ).val(data[1])
+        $( '#last_name' ).val(data[2]);
+        $( '#age' ).val(data[3]);
+
+    } );
+
+    $( "#add" ).click(function() {
+      first_name=$( '#first_name' ).val();
+      last_name=$( '#last_name' ).val();
+      age=$( '#age' ).val();
+      tr_id=$( '#tr_id' ).val();
+
+      $.ajax({
+        url: "/add_data",
+        type: 'POST',
+        data:{
+          first_name: first_name,
+          last_name: last_name,
+          age: age,
+          tr_id: tr_id
+        },
+        success: function(result) {
+          console.log(result);
+          table.ajax.reload();
+          $( '#first_name' ).val('');
+          $( '#last_name' ).val('');
+          $( '#age' ).val('');
+          $( '#tr_id' ).val('');
+      }});
+
+    });
+   });
+  </script>
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.1/css/bootstrap.css">
+  <link rel="stylesheet" href="https://cdn.datatables.net/1.10.19/css/dataTables.bootstrap4.min.css">
+</head>
+  <body>
+    <table id="example" class="table table-striped table-bordered" style="width:100%">
+      <thead>
+          <tr>
+              <th>ID</th>
+              <th>First name</th>
+              <th>Last name</th>
+              <th>Age</th>
+          </tr>
+      </thead>
+      <tfoot>
+          <tr>
+            <th>First name</th>
+            <th>Last name</th>
+            <th>Age</th>
+          </tr>
+      </tfoot>
+  </table>
+
+  <input type="text" id="first_name" value="">
+  <input type="text" id="last_name" value="">
+  <input type="text" id="age" value="">
+  <button type="button" name="button" id="add">ADD</button>
+  <input type="hidden" value="" id="tr_id">
+  </body>
+</html>
