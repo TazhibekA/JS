@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>CHAT</title>
+</head>
+
+<body>
+  <div class="" id="chat"></div>
+  <input type="text" id="message">
+  <button name="button" type="button" id="btn_send">SEND</button>
+  <select name="" id="">
+    <option value="red">red</option>
+    <option value="green">green</option>
+    <option value="black">black</option>
+  </select>
+
+  <script>
+    ws = new WebSocket('ws://localhost:3333');
+    ws.onopen = () => console.log('ONLINE');
+    ws.onclose = () => console.log('OFF');
+    ws.onmessage = response => {
+
+      console.log(response.data)
+      chat.insertAdjacentHTML('beforeend', "<p>" + response.data + "</p><hr>");
+    };
+
+
+
+    btn_send.addEventListener('click', event => {
+      ws.send(message.value);
+    })
+  </script>
+</body>
+
+</html>
